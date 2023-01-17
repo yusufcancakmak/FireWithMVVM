@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "826502132500",
+    "project_id": "fir-withmvvm-8ec8f",
+    "storage_bucket": "fir-withmvvm-8ec8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826502132500:android:863fd49e7a7abb39874801",
+        "android_client_info": {
+          "package_name": "com.yusufcancakmak.firebasewithmvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826502132500-0jq6oo5abvp7eof3te11mtjq6uuud9di.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqJDQQ7OMkP3ffuFtxIJlhPmNT08Tusfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826502132500-0jq6oo5abvp7eof3te11mtjq6uuud9di.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
