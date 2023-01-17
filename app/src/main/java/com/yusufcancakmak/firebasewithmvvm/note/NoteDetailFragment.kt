@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.yusufcancakmak.firebasewithmvvm.R
+
 import com.yusufcancakmak.firebasewithmvvm.databinding.FragmentNoteDetailBinding
-import com.yusufcancakmak.firebasewithmvvm.databinding.FragmentNoteListingBinding
 
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NoteDetailFragment : Fragment() {
     val TAG: String ="Note Detail Fragment"
     lateinit var binding: FragmentNoteDetailBinding
