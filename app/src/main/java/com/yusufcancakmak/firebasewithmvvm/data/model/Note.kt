@@ -1,12 +1,15 @@
 package com.yusufcancakmak.firebasewithmvvm.data.model
 
+import android.os.Parcelable
 import com.google.firebase.firestore.ServerTimestamp
-import java.util.Date
+import kotlinx.parcelize.Parcelize
 
+import java.util.Date
+@Parcelize
  data class Note (
      var id:String ="",
      val text:String ="",
      @ServerTimestamp
     val date: Date = Date(),
-        )
+        ):Parcelable
 
