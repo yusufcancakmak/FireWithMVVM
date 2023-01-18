@@ -8,10 +8,9 @@ import com.yusufcancakmak.firebasewithmvvm.util.Constants
 import com.yusufcancakmak.firebasewithmvvm.util.UiState
 
 
-
 class NoteRepositoryImp(
-    val database:FirebaseFirestore
-) :NoteRepository {
+    val database: FirebaseFirestore
+) : NoteRepository {
 
 
     override fun getNotes(result: (UiState<List<Note>>) -> Unit) {
@@ -20,8 +19,8 @@ class NoteRepositoryImp(
             .get()
             .addOnSuccessListener {
                 val notes = arrayListOf<Note>()
-                for (document in it){
-                    val note =document.toObject(Note::class.java)
+                for (document in it) {
+                    val note = document.toObject(Note::class.java)
                     notes.add(note)
 
                 }
@@ -32,7 +31,8 @@ class NoteRepositoryImp(
             }
             .addOnFailureListener {
                 result.invoke(
-                    UiState.Failure(it.localizedMessage
+                    UiState.Failure(
+                        it.localizedMessage
                     )
                 )
             }
@@ -40,13 +40,30 @@ class NoteRepositoryImp(
 
     @SuppressLint("SuspiciousIndentation")
     override fun addNote(note: Note, result: (UiState<String>) -> Unit) {
-       val document= database.collection(Constants.NOTE).document()
-               note.id = document.id
-                       document
+        val document = database.collection(Constants.NOTE).document()
+        note.id = document.id
+        document
             .set(note)
             .addOnSuccessListener {
                 result.invoke(
                     UiState.Success("Note has been cread suscces")
+                )
+            }.addOnFailureListener {
+                result.invoke(
+                    UiState.Failure(it.localizedMessage)
+                )
+
+            }
+    }
+
+    override fun updateNote(note: Note, result: (UiState<String>) -> Unit) {
+        val document = database.collection(Constants.NOTE).document(note.id)
+        note.id = document.id
+        document
+            .set(note)
+            .addOnSuccessListener {
+                result.invoke(
+                    UiState.Success("Note has been update suscces")
                 )
             }.addOnFailureListener {
                 result.invoke(

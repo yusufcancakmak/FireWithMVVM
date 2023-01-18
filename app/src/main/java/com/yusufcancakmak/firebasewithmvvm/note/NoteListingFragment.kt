@@ -27,13 +27,23 @@ class NoteListingFragment : Fragment() {
     val adapter by lazy {
         NoteListiningAdapter(
             onItemClicked = { pos,item->
+                findNavController().navigate(R.id.action_noteListingFragment_to_noteDetailFragment,Bundle().apply {
+                    putString("type","view")
+                    putParcelable("note",item)
+
+                })
 
 
             },
             onEditCliked = {pos, item ->
+                findNavController().navigate(R.id.action_noteListingFragment_to_noteDetailFragment,Bundle().apply {
+                    putString("type","edit")
+                    putParcelable("note",item)
+                })
 
             },
             onDeleteCicked = {pos, item ->
+                findNavController().navigate(R.id.action_noteListingFragment_to_noteDetailFragment)
 
             }
         )
@@ -58,7 +68,9 @@ class NoteListingFragment : Fragment() {
         binding.rv.layoutManager=LinearLayoutManager(requireContext())
         binding.rv.adapter=adapter
         binding.buton.setOnClickListener {
-            findNavController().navigate(R.id.action_noteListingFragment_to_noteDetailFragment)
+            findNavController().navigate(R.id.action_noteListingFragment_to_noteDetailFragment,Bundle().apply {
+                putString("type","create")
+            })
         }
         viewModel.getNotes()
         viewModel.note.observe(viewLifecycleOwner){ state->
