@@ -56,6 +56,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.5.3")
     implementation platform('com.google.firebase:firebase-bom:31.1.1')
     implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     //viewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
