@@ -22,6 +22,9 @@ class NoteViewModel @Inject constructor(private val repository:NoteRepository):V
     // update note
     private val _updatenotes=MutableLiveData<UiState<String>>()
     val updatenote:LiveData<UiState<String>> = _updatenotes
+    // update note
+    private val _deletenotes=MutableLiveData<UiState<String>>()
+    val deletenote:LiveData<UiState<String>> = _deletenotes
 
     fun getNotes(){
         _notes.value=UiState.Loading
@@ -41,6 +44,13 @@ class NoteViewModel @Inject constructor(private val repository:NoteRepository):V
         _updatenotes.value=UiState.Loading
         repository.updateNote(note){
             _updatenotes.value=it
+        }
+    }
+
+    fun deletenotes(note: Note) {
+        _deletenotes.value=UiState.Loading
+        repository.deleteNote(note){
+            _deletenotes.value=it
         }
     }
 

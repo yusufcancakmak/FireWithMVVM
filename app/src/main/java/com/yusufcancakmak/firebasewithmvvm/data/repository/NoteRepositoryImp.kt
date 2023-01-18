@@ -73,4 +73,21 @@ class NoteRepositoryImp(
             }
     }
 
+    override fun deleteNote(note: Note, result: (UiState<String>) -> Unit) {
+        val document = database.collection(Constants.NOTE).document(note.id)
+        note.id = document.id
+        document
+            .delete()
+            .addOnSuccessListener {
+                result.invoke(
+                    UiState.Success("Note has been delete suscces")
+                )
+            }.addOnFailureListener {
+                result.invoke(
+                    UiState.Failure(it.localizedMessage)
+                )
+
+            }
+    }
+
 }
