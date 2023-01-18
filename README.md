@@ -2,14 +2,23 @@
 Firebase implementation- Firestore-MVVM-DaggerHilt-Jetpack Navigation Component
 
 *Firebase implementation
+
 *Firebase Firestore
+
 *MVVM implementation
+
 *Jetpack Navigation Component(To create Navigation)
+
 *Dagger Hilt
+
 *Class to manager UI States
+
 *Create Note
+
 *Update Note
+
 *Delete Note
+
 *Lamda functions
 
 
